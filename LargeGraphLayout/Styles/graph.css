@@ -1,0 +1,11 @@
+﻿text {
+    font: 10px sans-serif;
+}
+line {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}

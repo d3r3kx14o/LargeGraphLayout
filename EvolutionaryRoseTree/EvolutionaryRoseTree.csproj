@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{214310B1-D173-467D-AAA3-4FC61EFBB930}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EvolutionaryRoseTree</RootNamespace>
+    <AssemblyName>EvolutionaryRoseTree</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;APPROXIMATE_LIKELIHOOD, SCALABILITY_TEST, ADJUST_TREE_STRUCTURE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;APPROXIMATE_LIKELIHOOD, SCALABILITY_TEST, ADJUST_TREE_STRUCTURE, PROJECTION_FILE_BINARY</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>APPROXIMATE_LIKELIHOOD</DefineConstants>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NEW_YORK_TIMES_TEST_SMOOTHNESS, SCALABILITY_TEST, NORMALIZED_SMOOTHNESS_COST, PROJ_WEIGHT_1, NORMALIZE_PROJ_WEIGHT</DefineConstants>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\Package\Zip\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\..\Package\Lucene\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accuracy\ARI.cs" />
+    <Compile Include="Accuracy\ConfusionMatrix.cs" />
+    <Compile Include="Accuracy\KmeanCost.cs" />
+    <Compile Include="Accuracy\LabelAccuracy.cs" />
+    <Compile Include="Accuracy\NMI.cs" />
+    <Compile Include="Accuracy\Purity.cs" />
+    <Compile Include="BuildRoseTree.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\AnalyzeTree\AnalyzeTreeData.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\BuildTree\BuildRoseTree.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\BuildTree\RoseTreeParameters.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\Data\GlobalLexicon.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\Data\RawDocument.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\Data\RoseTreeData.cs" />
+    <Compile Include="ConstrainedRoseTreeLibrary\DrawTree\DrawRoseTree.cs" />
+    <Compile Include="Constraints\ConflictConstraints\ConstraintTreeMatching.cs" />
+    <Compile Include="Constraints\ConstraintTree.cs" />
+    <Compile Include="Constraints\ConstraintTreeNode.cs" />
+    <Compile Include="Constraints\DataProjection.cs" />
+    <Compile Include="Constraints\GroundTruthConstraint.cs" />
+    <Compile Include="Constraints\InheritParentInfo.cs" />
+    <Compile Include="Constraints\LooseTreeOrderConstraint.cs" />
+    <Compile Include="Constraints\ConflictConstraints\RemoveContraintTreeConflicts.cs" />
+    <Compile Include="Constraints\SucceedRelationConstraintTree.cs" />
+    <Compile Include="DataStructures\ConstrainedBayesionBinaryTree.cs" />
+    <Compile Include="DataStructures\ConstrainedSortedDictionary.cs" />
+    <Compile Include="DataStructures\ConstrainedRoseTree.cs" />
+    <Compile Include="Constraints\Constraint.cs" />
+    <Compile Include="Constraints\TreeDistanceConstraint.cs" />
+    <Compile Include="Constraints\TreeOrderConstraint.cs" />
+    <Compile Include="DataStructures\ExpandedCacheClass.cs" />
+    <Compile Include="DataStructures\GroundTruthBinaryTree.cs" />
+    <Compile Include="DataStructures\LoadGlobalFeatureVectors.cs" />
+    <Compile Include="DataStructures\LoadSubTreeFeatureVectors.cs" />
+    <Compile Include="DataStructures\MergedLoadGlobalFeatureVectors.cs" />
+    <Compile Include="DataStructures\SubRoseTree.cs" />
+    <Compile Include="Data\DataAnalysis.cs" />
+    <Compile Include="Data\DataPreprocessing.cs" />
+    <Compile Include="DataStructures\GroundTruthRoseTree.cs" />
+    <Compile Include="DataStructures\RuleCacheSortedDictionary.cs" />
+    <Compile Include="DataStructures\RuleRoseTree.cs" />
+    <Compile Include="Data\TestReadingData.cs" />
+    <Compile Include="Experiments\AccuracyExperiment.cs" />
+    <Compile Include="Experiments\AlgorithmParameter.cs" />
+    <Compile Include="Experiments\BingNewsParameters.cs" />
+    <Compile Include="Experiments\ConfigEvolutionary.cs" />
+    <Compile Include="Experiments\ConstraintParameter.cs" />
+    <Compile Include="Experiments\EvolutionaryExperiments.cs" />
+    <Compile Include="Experiments\EvolvingDoubleParameter.cs" />
+    <Compile Include="Experiments\Experiment.cs" />
+    <Compile Include="Experiments\ExperimentParameters.cs" />
+    <Compile Include="Experiments\ExperimentRoseTree.cs" />
+    <Compile Include="Experiments\ScalabilityExperiment.cs" />
+    <Compile Include="Experiments\TuneParameterExperiments.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\HungarianMatching.cs" />
+    <Compile Include="Util\HungarianMatchingOld.cs" />
+    <Compile Include="Smoothness\MetricTree.cs" />
+    <Compile Include="Smoothness\MetricTreeNode.cs" />
+    <Compile Include="Smoothness\RobinsonFouldsDistance.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Util\FileOperations.cs" />
+    <Compile Include="Util\LucenIndexOperationFunctions.cs" />
+    <Compile Include="Util\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoseTreeTaxonomy\RoseTreeTaxonomy.csproj">
+      <Project>{912d0775-d936-4705-a8fa-88b8d0a09c63}</Project>
+      <Name>RoseTreeTaxonomy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
